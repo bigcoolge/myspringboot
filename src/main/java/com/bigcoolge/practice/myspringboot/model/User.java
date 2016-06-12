@@ -3,15 +3,13 @@ package com.bigcoolge.practice.myspringboot.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bigcoolge.practice.myspringboot.entity.CharacteristicsPojo;
-
 public class User {
 	private Long id;
 	private String name;
 	private String gender;
 	private Integer age;
 	private Map<Characteristics, UserCharacter> characters = new HashMap<Characteristics, UserCharacter>();
-	private Map<CharacteristicsPojo, String> characterStrs = new HashMap<CharacteristicsPojo, String>();
+	private Map<Characteristics, String> characterStrs = new HashMap<Characteristics, String>();
 	
 
 	public Long getId() {
@@ -44,10 +42,10 @@ public class User {
 	public void setCharacters(Map<Characteristics, UserCharacter> characters) {
 		this.characters = characters;
 	}
-	public Map<CharacteristicsPojo, String> getCharacterStrs() {
+	public Map<Characteristics, String> getCharacterStrs() {
 		return characterStrs;
 	}
-	public void setCharacterStrs(Map<CharacteristicsPojo, String> characterStrs) {
+	public void setCharacterStrs(Map<Characteristics, String> characterStrs) {
 		this.characterStrs = characterStrs;
 	}
 	
