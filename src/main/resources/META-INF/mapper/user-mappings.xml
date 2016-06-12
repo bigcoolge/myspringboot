@@ -8,4 +8,12 @@
 		<class-a>com.bigcoolge.practice.myspringboot.model.User</class-a>
 		<class-b>com.bigcoolge.practice.myspringboot.entity.UserPojo</class-b>
 	</mapping>
+	<mapping>	
+		<class-a>com.bigcoolge.practice.myspringboot.model.Characteristics</class-a>
+		<class-b>com.bigcoolge.practice.myspringboot.entity.CharacteristicsPojo</class-b>
+	</mapping>
+	<mapping>	
+		<class-a>com.bigcoolge.practice.myspringboot.model.UserCharacter</class-a>
+		<class-b>com.bigcoolge.practice.myspringboot.entity.UserCharacterPojo</class-b>
+	</mapping>
 </mappings>

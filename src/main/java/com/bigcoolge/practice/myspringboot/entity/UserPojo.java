@@ -3,13 +3,16 @@ package com.bigcoolge.practice.myspringboot.entity;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user")
@@ -23,9 +26,17 @@ public class UserPojo {
 	private String gender;
 	private Integer age;
 	
-	@Transient
-	private Map<String, String> characters = new HashMap<String, String>();
+	@ElementCollection(targetClass = UserCharacterPojo.class)
+    @CollectionTable(name = "user_character", joinColumns = @JoinColumn(name = "user_id"))
+	@MapKeyJoinColumn(name="char_id", referencedColumnName = "id")
+	private Map<CharacteristicsPojo, UserCharacterPojo> characters = new HashMap<CharacteristicsPojo, UserCharacterPojo>();
 
+	@ElementCollection
+	@CollectionTable(name = "user_character", joinColumns = @JoinColumn(name = "user_id"))
+	@MapKeyJoinColumn(name="char_id", referencedColumnName = "id")
+	@Column(name="char_value")
+	private Map<CharacteristicsPojo, String> characterStrs = new HashMap<CharacteristicsPojo, String>();
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,10 +61,16 @@ public class UserPojo {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public Map<String, String> getCharacters() {
+	public Map<CharacteristicsPojo, UserCharacterPojo> getCharacters() {
 		return characters;
 	}
-	public void setCharacters(Map<String, String> characters) {
+	public void setCharacters(Map<CharacteristicsPojo, UserCharacterPojo> characters) {
 		this.characters = characters;
+	}
+	public Map<CharacteristicsPojo, String> getCharacterStrs() {
+		return characterStrs;
+	}
+	public void setCharacterStrs(Map<CharacteristicsPojo, String> characterStrs) {
+		this.characterStrs = characterStrs;
 	}
 }
