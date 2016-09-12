@@ -16,7 +16,7 @@ import com.bigcoolge.practice.myspringboot.repository.UserRepository;
 @Service
 public class UserService {
 	
-	private static Logger log =  Logger.getLogger(UserService.class.getName());
+	private static Logger log =  Logger.getLogger(UserService.class);
 	
 	@Autowired
 	private UserRepository userHome;

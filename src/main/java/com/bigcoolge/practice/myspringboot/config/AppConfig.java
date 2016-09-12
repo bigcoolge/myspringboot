@@ -16,6 +16,7 @@ public class AppConfig {
 		DozerBeanMapper mapper = new DozerBeanMapper();
 		List<String> mappings = new ArrayList<String>();
 		mappings.add("META-INF/mapper/user-mappings.xml");
+		mappings.add("META-INF/mapper/author-mappings.xml");
 		mapper.setMappingFiles(mappings);
 		return mapper;
 	}
