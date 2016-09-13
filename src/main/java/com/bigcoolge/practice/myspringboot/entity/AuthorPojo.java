@@ -2,15 +2,11 @@ package com.bigcoolge.practice.myspringboot.entity;
 
 import java.util.List;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "authors")
@@ -23,8 +19,6 @@ public class AuthorPojo {
 	private String gender;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
-	@JsonManagedReference
-	@CollectionTable(name = "books", joinColumns=@JoinColumn(name = "author_no"))
 	private List<BookPojo> books;
 	
 	public String getName() {

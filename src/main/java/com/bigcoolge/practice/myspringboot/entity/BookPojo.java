@@ -12,8 +12,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity
 @Table(name = "books")
 public class BookPojo {
@@ -28,7 +26,6 @@ public class BookPojo {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "author_no")
-	@JsonBackReference
 	private AuthorPojo author;
 
 	public String getNumber() {
